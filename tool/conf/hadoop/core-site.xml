@@ -19,7 +19,7 @@
 <configuration>
 <property>
 <name>fs.default.name </name>
-<value>hdfs://109.231.124.131:9000</value>
+<value>hdfs://109.231.126.60:9000</value>
 <description>namenode uri</description>
 </property>
 <property>
@@ -29,7 +29,7 @@
 </property>
 <property>
 <name>dfs.http.address </name>
-<value>109.231.124.131:50070</value>
+<value>109.231.126.60:50070</value>
 <description>temp directories</description>
 </property>
 </configuration>

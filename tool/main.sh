@@ -22,7 +22,7 @@ slave_num=$(wc -l < ${slave})
 hadoop_v=$(sed -n "2p" ${links})
 hbase_v=$(sed -n "4p" ${links})
 
-echo -n "Java 6 is required on all machines. "
+echo -n "Java 7 is required on all machines. "
 echo -n "Do you want to install Java? (y/n)"
 read var
 if [ ${var} = "n" ]; then
@@ -38,7 +38,8 @@ do
   echo Secondary Namenode n${X} : ${secname_temp}
   scp -qr tool/conf ${secname_temp}:~/
   echo conf copied in ${secname_temp}
-  ssh ${secname_temp} sudo apt-get install openjdk-6-jre
+  ssh ${secname_temp} sudo apt-get update
+  ssh ${secname_temp} sudo apt-get install openjdk-7-jre
   ssh -t -t ${secname_temp} ./conf/hadoop_conf.sh ${hadoop} ${hadoop_data} ${hadoop_v}
   echo Hadoop configured in ${secname_temp}
   #HADOOP
@@ -53,7 +54,8 @@ do
   echo Namenode n${X} : ${name_temp}
   scp -qr tool/conf ${name_temp}:~/
   echo conf copied in ${name_temp}
-  ssh ${name_temp} sudo apt-get install openjdk-6-jre
+  ssh ${name_temp} sudo apt-get update
+  ssh ${name_temp} sudo apt-get install openjdk-7-jre
   ssh -t -t ${name_temp} ./conf/hadoop_conf.sh ${hadoop} ${hadoop_data} ${hadoop_v}
   echo Hadoop configured in ${name_temp}
   #HADOOP
@@ -66,7 +68,8 @@ do
   echo Master n${X} : ${master_temp}
   scp -qr tool/conf/ ${master_temp}:~/
   echo conf copied in ${master_temp}
-  ssh ${master_temp} sudo apt-get install openjdk-6-jre
+  ssh ${master_temp} sudo apt-get update
+  ssh ${master_temp} sudo apt-get install openjdk-7-jre
   ssh -t -t ${master_temp} ./conf/hbase_conf.sh ${hbase} ${hbase_v}
   echo HBase configured in ${master_temp}
 done
@@ -77,7 +80,8 @@ do
   echo Slave n${X} : ${slave_temp}
   scp -rq tool/conf/ ${slave_temp}:~/
   echo conf copied in ${slave_temp}
-  ssh ${slave_temp} sudo apt-get install openjdk-6-jre
+  ssh ${slave_temp} sudo apt-get update
+  ssh ${slave_temp} sudo apt-get install openjdk-7-jre
   ssh -t -t ${slave_temp} ./conf/hadoop_conf.sh ${hadoop} ${hadoop_data} ${hadoop_v}
   echo Hadoop configured in ${slave_temp}
   ssh -t -t ${slave_temp} ./conf/hbase_conf.sh ${hbase} ${hbase_v}

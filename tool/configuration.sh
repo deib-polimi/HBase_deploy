@@ -13,7 +13,7 @@ replication=$(sed -n "1p" ${replications})
 hadoop_folder=$1
 hadoop_data=${hadoop_folder}/$2
 hbase_folder=$3
-java_path="/usr/lib/jvm/java-6-openjdk-amd64"
+java_path="/usr/lib/jvm/java-7-openjdk-amd64"
 
 #FILE LENGHTS
 master_num=$(wc -l < ${master})

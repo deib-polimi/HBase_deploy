@@ -22,14 +22,14 @@ master="${hadoop_folder}/${hadoop_conf}/masters"
 slaves="${hadoop_folder}/${hadoop_conf}/slaves"
 
 #LINKS
-hadoop_link="apache.fis.uniroma2.it/hadoop/core/hadoop-${hadoop_v}/hadoop-${hadoop_v}.tar.gz"
+hadoop_link="archive.apache.org/dist/hadoop/common/hadoop-${hadoop_v}/hadoop-${hadoop_v}.tar.gz"
 
 wget -nc ${hadoop_link}
 echo "Hadoop downloaded!!"
 tar -xf hadoop-${hadoop_v}.tar.gz
 mv hadoop-${hadoop_v} ${hadoop_folder}
 mkdir ${hadoop_data}
-chmod -R 777 ${hadoop_folder}
+chmod -R 755 ${hadoop_folder}
 
 cp conf/hadoop/core-site.xml ${core_site}
 cp conf/hadoop/hadoop-env.sh ${hadoop_env}
@@ -38,6 +38,9 @@ cp conf/hadoop/masters ${master}
 cp conf/hadoop/slaves ${slaves}
 
 sed -i s+CURRENT_POS+$PWD+g ${core_site}
+
+cd ${hadoop_folder}/bin
+source ./hadoop datanode -format
 
 echo "Hadoop configured!"
 
