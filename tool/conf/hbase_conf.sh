@@ -12,12 +12,12 @@ hbase_env="${hbase_folder}/conf/hbase-env.sh"
 slaves="${hbase_folder}/conf/regionservers"
 
 #LINKS
-hbase_link="apache.fis.uniroma2.it/hbase/hbase-${hbase_v}/hbase-${hbase_v}.tar.gz"
+hbase_link="archive.apache.org/dist/hbase/hbase-${hbase_v}/hbase-${hbase_v}-hadoop2-bin.tar.gz"
 
 wget -nc ${hbase_link}
 echo "HBase Downloaded!!"
-tar -xf hbase-${hbase_v}.tar.gz
-mv hbase-${hbase_v} ${hbase_folder}
+tar -xf hbase-${hbase_v}-hadoop2-bin.tar.gz
+mv hbase-${hbase_v}-hadoop2 ${hbase_folder}
 
 cp conf/hbase/hbase-site.xml ${hbase_site}
 cp conf/hbase/hbase-env.sh ${hbase_env}

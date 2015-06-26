@@ -23,12 +23,12 @@
 <configuration>
 <property>
 <name>hbase.master</name>
-<value>109.231.124.131:54310</value>
+<value>109.231.126.60:54310</value>
 <description>master host port</description>
 </property>
 <property>
 <name>hbase.rootdir</name>
-<value>hdfs://109.231.124.131:9000/hbase</value>
+<value>hdfs://109.231.126.60:9000/hbase</value>
 <description>directory shared by regionservers</description>
 </property>
 <property>
@@ -43,12 +43,12 @@
 </property>
 <property>
 <name>hbase.zookeeper.quorum</name>
-<value>109.231.124.131</value>
+<value>109.231.126.60</value>
 <description>list of servers in zookeeper quorum</description>
 </property>
 <property>
 <name>zookeeper.znode.parent</name>
-<value>/hbase-unsecure</value>
+<value>/hbase</value>
 <description>needed for java app</description>
 </property>
 <property>

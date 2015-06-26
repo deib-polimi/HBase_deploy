@@ -9,4 +9,8 @@
 <value>3</value>
 <description> number of replication </description>
 </property>
+<property>
+  <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+  <value>false</value>
+</property>
 </configuration>
